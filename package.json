@@ -1,0 +1,31 @@
+{
+  "name": "restapp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "dmitrykirilin <demonus18@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server"
+  },
+  "dependencies": {
+    "@stomp/stompjs": "^5.4.4",
+    "css-loader": "^1.0.1",
+    "sockjs-client": "^1.5.0",
+    "vue": "^2.6.11",
+    "vue-resource": "^1.5.1",
+    "vuetify": "^2.3.9"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
+    "@mdi/font": "^5.5.55",
+    "@mdi/js": "^5.5.55",
+    "babel-loader": "^8.1.0",
+    "vue-loader": "^15.9.3",
+    "vue-style-loader": "4.1.2",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
