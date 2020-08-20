@@ -1,7 +1,8 @@
 <template>
     <v-row>
     <v-col cols="12" sm="6" md="3">
-         <v-text-field label="New message"
+         <v-text-field
+            label="New message"
             placeholder="write something"
             v-model="name"
             solo
@@ -17,10 +18,11 @@
 
 <script>
 
-    import { sendMessage } from "util/ws";
+    import serverApi from 'api/messages'
 
     export default {
         props: ['messages', 'messageName'],
+
         data() {
                 return{
                     name: '',
@@ -35,26 +37,32 @@
             },
             methods: {
                 save() {
-                    sendMessage({id: this.id, name: this.name})
-                    this.name = ''
-                    this.id = ''
-                    /*const message = {name: this.name}
+
+                    const message = {
+                        id: this.id,
+                        name: this.name}
 
                     if(this.id){
-                        this.$resource('/rest/v1/messages{/id}').update({id: this.id}, message).then(result =>
+                        serverApi.update(message).then(result =>
                             result.json().then(data => {
-                                const index = getIndex(this.messages, data.id)
+                                const index = this.messages.findIndex(item => item.id === data.id)
                                 this.messages.splice(index, 1, data)
-                                this.name = ''
-                                this.id = ''
                             }))
                     } else {
-                        this.$resource('/rest/v1/messages{/id}').save({}, message).then(result =>
+                        serverApi.add(message).then(result =>
                             result.json().then(data => {
-                                 this.messages.push(data)
-                                this.name = ''
+                                    const index = this.messages.findIndex(item => item.id === data.id)
+
+                                    if(index > -1){
+                                        this.messages.splice(index, 1, data)
+                                    } else{
+                                    this.messages.push(data)
+                                    }
                             }))
-                    }*/
+                    }
+
+                    this.name = ''
+                    this.id = ''
                 }
             }
     }
