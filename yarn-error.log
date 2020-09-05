@@ -1,8 +1,8 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add -D @1.0.1 --exact
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add viex
 
 PATH: 
-  C:\Users\dmitr\restapp\node_modules\.bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\nodejs\;D:\MongoDB\bin;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files (x86)\Microsoft SQL Server\150\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Microsoft SQL Server\110\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\ManagementStudio\;C:\Program Files (x86)\Microsoft SQL Server\110\DTS\Binn\;C:\Program Files\Java\jdk-14.0.1\bin;C:\Program Files\Git\cmd;C:\Maven\apache-maven-3.6.3\bin;C:\Program Files (x86)\Yarn\bin\;C:\Users\dmitr\AppData\Local\Programs\Python\Python38-32\Scripts\;C:\Users\dmitr\AppData\Local\Programs\Python\Python38-32\;C:\Users\dmitr\AppData\Local\Microsoft\WindowsApps;C:\Users\dmitr\AppData\Roaming\npm;D:\MongoDB\bin;C:\Users\dmitr\AppData\Local\Yarn\bin
+  C:\Users\dmitr\restapp\node_modules\.bin;D:\OracleDB\dbhomeXE\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\nodejs\;D:\MongoDB\bin;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files (x86)\Microsoft SQL Server\150\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Microsoft SQL Server\110\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\ManagementStudio\;C:\Program Files (x86)\Microsoft SQL Server\110\DTS\Binn\;C:\Program Files\Java\jdk-14.0.1\bin;C:\Program Files\Git\cmd;C:\Maven\apache-maven-3.6.3\bin;C:\Program Files (x86)\Yarn\bin\;C:\Users\dmitr\AppData\Local\Programs\Python\Python38-32\Scripts\;C:\Users\dmitr\AppData\Local\Programs\Python\Python38-32\;C:\Users\dmitr\AppData\Local\Microsoft\WindowsApps;C:\Users\dmitr\AppData\Roaming\npm;D:\MongoDB\bin;C:\Users\dmitr\AppData\Local\Yarn\bin;;C:\Program Files\Docker Toolbox
 
 Yarn version: 
   1.22.4
@@ -14,8 +14,8 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@1.0.1: Request "https://registry.yarnpkg.com/@1.0.1" returned a 405
-      at Request.params.callback [as _callback] (C:\Program Files (x86)\Yarn\lib\cli.js:66105:18)
+  Error: https://registry.yarnpkg.com/viex: Not found
+      at Request.params.callback [as _callback] (C:\Program Files (x86)\Yarn\lib\cli.js:66096:18)
       at Request.self.callback (C:\Program Files (x86)\Yarn\lib\cli.js:140748:22)
       at emitTwo (events.js:126:13)
       at Request.emit (events.js:214:7)
@@ -38,16 +38,20 @@ npm manifest:
     },
     "dependencies": {
       "@stomp/stompjs": "^5.4.4",
-      "css-loader": "1.0.1",
+      "css-loader": "^1.0.1",
       "sockjs-client": "^1.5.0",
       "vue": "^2.6.11",
-      "vue-resource": "^1.5.1"
+      "vue-resource": "^1.5.1",
+      "vuetify": "^2.3.9"
     },
     "devDependencies": {
       "@babel/core": "^7.11.1",
       "@babel/preset-env": "^7.11.0",
+      "@mdi/font": "^5.5.55",
+      "@mdi/js": "^5.5.55",
       "babel-loader": "^8.1.0",
       "vue-loader": "^15.9.3",
+      "vue-style-loader": "4.1.2",
       "vue-template-compiler": "^2.6.11",
       "webpack": "^4.44.1",
       "webpack-cli": "^3.3.12",
@@ -890,6 +894,16 @@ Lockfile:
       "@babel/helper-validator-identifier" "^7.10.4"
       lodash "^4.17.19"
       to-fast-properties "^2.0.0"
+  
+  "@mdi/font@^5.5.55":
+    version "5.5.55"
+    resolved "https://registry.yarnpkg.com/@mdi/font/-/font-5.5.55.tgz#7f83d640f0692651f5e59558da99975f42114123"
+    integrity sha512-xrVCXiRMz7ubB8mu6ehDhMADmGpLBsk3GWZccs39jWmhoTxatFnOvW8STJjqMGtePPNgGYYu/6m/AJVyMjBxnw==
+  
+  "@mdi/js@^5.5.55":
+    version "5.5.55"
+    resolved "https://registry.yarnpkg.com/@mdi/js/-/js-5.5.55.tgz#8dc97fbcc47d1f6bfa3343d4f7c7f5c0e2990151"
+    integrity sha512-vbw1QW3M9A4vObU9WmTETTG7n7feC9HSn/3up8ZYk/M3K9fGL9FPtw0+bdASRu1UOBgEsqC9eBhNW10IOcwMIg==
   
   "@sindresorhus/is@^0.7.0":
     version "0.7.0"
@@ -1903,7 +1917,7 @@ Lockfile:
       randombytes "^2.0.0"
       randomfill "^1.0.3"
   
-  css-loader@1.0.1:
+  css-loader@^1.0.1:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-1.0.1.tgz#6885bb5233b35ec47b006057da01cc640b6b79fe"
     integrity sha512-+ZHAZm/yqvJ2kDtPne3uX0C+Vr3Zn5jFn2N4HywtS5ujwvsVkyg0VArEXpl3BgczDA8anieki1FIzhchX4yrDw==
@@ -5188,7 +5202,7 @@ Lockfile:
     dependencies:
       got "^8.0.3"
   
-  vue-style-loader@^4.1.0:
+  vue-style-loader@4.1.2, vue-style-loader@^4.1.0:
     version "4.1.2"
     resolved "https://registry.yarnpkg.com/vue-style-loader/-/vue-style-loader-4.1.2.tgz#dedf349806f25ceb4e64f3ad7c0a44fba735fcf8"
     integrity sha512-0ip8ge6Gzz/Bk0iHovU9XAUQaFt/G2B61bnWa2tCcqqdgfHs1lF9xXorFbE55Gmy92okFT+8bfmySuUOu13vxQ==
@@ -5213,6 +5227,11 @@ Lockfile:
     version "2.6.11"
     resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.11.tgz#76594d877d4b12234406e84e35275c6d514125c5"
     integrity sha512-VfPwgcGABbGAue9+sfrD4PuwFar7gPb1yl1UK1MwXoQPAw0BKSqWfoYCT/ThFrdEVWoI51dBuyCoiNU9bZDZxQ==
+  
+  vuetify@^2.3.9:
+    version "2.3.9"
+    resolved "https://registry.yarnpkg.com/vuetify/-/vuetify-2.3.9.tgz#6dcd1de647e1ce2c7cfaebb7068a0cf8929360b3"
+    integrity sha512-E5K9flTvS21tCkHgqDBMl0BY/Rld4SLUaJpQ+sQdL8/2uPcWmWLrdumn4SI8LBFojE0UP1GSaH4zKuxLL36fYg==
   
   watchpack-chokidar2@^2.0.0:
     version "2.0.0"

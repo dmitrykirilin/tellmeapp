@@ -18,10 +18,10 @@
 
 <script>
 
-    import serverApi from 'api/messages'
+    import { mapActions } from 'vuex'
 
     export default {
-        props: ['messages', 'messageName'],
+        props: ['messageName'],
 
         data() {
                 return{
@@ -36,6 +36,7 @@
                 }
             },
             methods: {
+                ...mapActions(['addMessageAction', 'updateMessageAction']),
                 save() {
 
                     const message = {
@@ -43,22 +44,9 @@
                         name: this.name}
 
                     if(this.id){
-                        serverApi.update(message).then(result =>
-                            result.json().then(data => {
-                                const index = this.messages.findIndex(item => item.id === data.id)
-                                this.messages.splice(index, 1, data)
-                            }))
+                        this.updateMessageAction(message)
                     } else {
-                        serverApi.add(message).then(result =>
-                            result.json().then(data => {
-                                    const index = this.messages.findIndex(item => item.id === data.id)
-
-                                    if(index > -1){
-                                        this.messages.splice(index, 1, data)
-                                    } else{
-                                    this.messages.push(data)
-                                    }
-                            }))
+                        this.addMessageAction(message)
                     }
 
                     this.name = ''

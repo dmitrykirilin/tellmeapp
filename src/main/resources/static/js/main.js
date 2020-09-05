@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import VueResource from 'vue-resource'
 import 'api/resource'
+import '@babel/polyfill'
 import App from 'pages/App.vue'
+import store from "./store/store";
 import { connect } from "./util/ws";
 import vuetify from "./util/vuetify";
 
@@ -12,6 +14,7 @@ if(frontendData.profile) {
 new Vue({
     vuetify,
     el: '#app',
+    store: store,
     render: a => a(App)
 })
 
