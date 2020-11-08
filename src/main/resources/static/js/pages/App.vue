@@ -10,28 +10,16 @@
             </div>
         </v-app-bar>
         <v-main>
-
-        <v-container app v-if="!profile">Необходимо авторизоваться через
-                <a href="/login">Google</a>
-        </v-container>
-
-        <v-container fluid v-if="profile">
-                <messages-list />
-        </v-container>
-
+        <router-view></router-view>
         </v-main>
     </v-app>
 </template>
 
 <script>
     import { mapState, mapMutations } from 'vuex'
-    import MessagesList from 'components/messages/MessageList.vue'
     import {addHandler} from "util/ws";
 
     export default {
-        components:{
-            MessagesList
-        },
         computed: mapState(['profile']),
         methods: mapMutations(['addMessageMutation', 'updateMessageMutation', 'removeMessageMutation']),
         created(){
@@ -54,7 +42,12 @@
                     console.error(`Object type unknown "${data.objectType}"`)
                     }
             })
-        }
+        },
+        beforeMount() {
+                    if (!this.profile) {
+                        this.$router.replace('/auth')
+                    }
+                }
     }
 </script>
 

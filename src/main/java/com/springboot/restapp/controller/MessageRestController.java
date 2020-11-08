@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 import com.springboot.restapp.dto.EventType;
 import com.springboot.restapp.dto.ObjectType;
 import com.springboot.restapp.model.Message;
+import com.springboot.restapp.model.User;
 import com.springboot.restapp.model.Views;
 import com.springboot.restapp.repo.MessageRepo;
 import com.springboot.restapp.util.WsSender;
@@ -11,6 +12,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
@@ -61,10 +63,12 @@ public class MessageRestController {
 
     @JsonView(Views.IdName.class)
     @PostMapping(value = "messages")
-    public ResponseEntity<?> addNewMessage(@RequestBody Message message){
+    public ResponseEntity<?> addNewMessage(@RequestBody Message message,
+                                           @AuthenticationPrincipal User user){
         if(message == null){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+        message.setAuthor(user);
         message.setCreationDate(LocalDateTime.now());
         Message storageMessage = messageRepo.save(message);
 

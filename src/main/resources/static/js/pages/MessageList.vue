@@ -1,4 +1,5 @@
 <template>
+<v-container>
     <v-layout align-space-around justify-start column fluid>
         <message-form :messageName="message"/>
         <message-row v-for="item in sortedMessages"
@@ -6,6 +7,7 @@
                     :message="item"
                     :editMessage="editMessage"/>
     </v-layout>
+</v-container>
 </template>
 
 <script>
